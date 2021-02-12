@@ -1,0 +1,28 @@
+{
+  "name": "@selfage/service_descriptor",
+  "version": "0.0.1",
+  "description": "Descriptor for web/http services.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selfage/service_descriptor.git"
+  },
+  "keywords": [
+    "Descriptor",
+    "Service"
+  ],
+  "author": "Yuxuan Xie <teststaybaka@gmail.com> (http://www.yuxuanxie.com)",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/selfage/service_descriptor/issues"
+  },
+  "homepage": "https://github.com/selfage/service_descriptor#readme",
+  "main": "./descriptor.js",
+  "types": "./descriptor.d.ts",
+  "dependencies": {
+    "@selfage/message": "^1.0.3"
+  },
+  "devDependencies": {
+    "@selfage/tsconfig": "^1.0.3",
+    "typescript": "^4.1.3"
+  }
+}
