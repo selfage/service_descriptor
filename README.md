@@ -82,7 +82,7 @@ A `service` with `session` is treated as an authed service, whose `request` requ
 [{
   "message": {
     "name": "GetHistoryRequest",
-    fields: [{
+    "fields": [{
       "name": "signedSession",
       "type": "string"
     }, ...]
