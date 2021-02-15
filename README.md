@@ -69,7 +69,7 @@ export let GET_HISTORY: AuthedServiceDescriptor<GetHistoryRequest, GetHistoryRes
 
 It's recommended to commit `service.ts` as part of your source code.
 
-The schema of the json file is an array of [definition](https://github.com/selfage/cli/blob/f500b78e9f65a44ce422962952afbb49588b6023/generate/definition.ts#L78). See `@selfage/message` for explanation of generating messages. `request` and `response` each refers to a message, and each can be imported following Nodejs's module path resolution.
+The schema of the json file is an array of [definition](https://github.com/selfage/cli/blob/d5b3aecd665f6ef977f8ac3368134cd0d84e27b0/generate/definition.ts#L73). See `@selfage/message` for explanation of generating messages. `request` and `response` each refers to a message, and each can be imported following Nodejs's module path resolution.
 
 When `request` contains a field named as `signedSession`, that `service` is then treated as an authed service. If not, an unauthed service. E.g., `request_def.json` might look like the following.
 
