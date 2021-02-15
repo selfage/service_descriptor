@@ -37,9 +37,7 @@ With `@selfage/cli`, it requires an input file, e.g., `service.json` which looks
     "request": "GetHistoryRequest",
     "importRequest": "./request_def",
     "response": "GetHistoryResponse",
-    "importResponse": "./response_def",
-    "session": "Session",
-    "importSession": "./session_def"
+    "importResponse": "./response_def"
   }
 }]
 ```
@@ -47,10 +45,10 @@ With `@selfage/cli`, it requires an input file, e.g., `service.json` which looks
 By running `selfage gen service`, it will generate `service.ts` file, which looks like the following.
 
 ```TypeScript
+import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { UnauthedServiceDescriptor, AuthedServiceDescriptor } from '@selfage/service_descriptor';
 import { GetHistoryRequest, GET_HISTORY_REQUEST } from './request_def';
 import { GetHistoryResponse, GET_HISTORY_RESPONSE } from './response_def';
-import { Session, SESSION } from './session_def';
 
 // ... Generated messages for GetCommentsRequest and GetCommentsResponse.
 
@@ -61,22 +59,19 @@ export let GET_COMMENTS: UnauthedServiceDescriptor<GetCommentsRequest, GetCommen
   responseDescriptor: GET_COMMENTS_RESPONSE,
 };
 
-export let GET_HISTORY: AuthedServiceDescriptor<GetHistoryRequest, GetHistoryResponse, Session> = {
+export let GET_HISTORY: AuthedServiceDescriptor<GetHistoryRequest, GetHistoryResponse> = {
   name: "GetHistory",
   path: "/get_history",
   requestDescriptor: GET_HISTORY_REQUEST,
   responseDescriptor: GET_HISTORY_RESPONSE,
-  session: SESSION,
 };
 ```
 
 It's recommended to commit `service.ts` as part of your source code.
 
-The schema of the json file is an array of [definition](https://github.com/selfage/cli/blob/f500b78e9f65a44ce422962952afbb49588b6023/generate/definition.ts#L78). See `@selfage/message` for explanation of generating messages. `request`, `response` and `session` each refers to a message, and each can be imported following nodejs's module path resolution.
+The schema of the json file is an array of [definition](https://github.com/selfage/cli/blob/f500b78e9f65a44ce422962952afbb49588b6023/generate/definition.ts#L78). See `@selfage/message` for explanation of generating messages. `request` and `response` each refers to a message, and each can be imported following Nodejs's module path resolution.
 
-A `service` without `session` is treated as an unauthed service.
-
-A `service` with `session` is treated as an authed service, whose `request` requires a `signedSession` field, i.e. as the following.
+When `request` contains a field named as `signedSession`, that `service` is then treated as an authed service. If not, an unauthed service. E.g., `request_def.json` might look like the following.
 
 ```JSON
 [{
@@ -85,9 +80,12 @@ A `service` with `session` is treated as an authed service, whose `request` requ
     "fields": [{
       "name": "signedSession",
       "type": "string"
-    }, ...]
+    }, {
+      "name": "userId",
+      "type": "string"
+    }]
   }
 }]
 ```
 
-You usually don't need to explicitly set `signedSession` field or read it. See `@selfage/web_service_client` which sets it and `@selfage/service_handler` which reads it. This is an opinionated decision that passing session explicitly in request body is better than passing it implicitly in HTTP header in most cases.
+You usually don't need to explicitly set `signedSession` field or read it. This is an opinionated decision that passing session explicitly in request body is better than passing it implicitly in HTTP header in most cases. See `@selfage/web_service_client` for how it is set. See `@selfage/service_handler` for it was generated, read and parsed, where a definition of session needs to be provided.

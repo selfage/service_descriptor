@@ -11,13 +11,11 @@ export interface UnauthedServiceDescriptor<ServiceRequest, ServiceResponse>
   extends ServiceDescriptor<ServiceRequest, ServiceResponse> {}
 
 export interface WithSession {
-  signedSession: string;
+  signedSession?: string;
 }
 
 export interface AuthedServiceDescriptor<
   ServiceRequest extends WithSession,
-  ServiceResponse,
-  Session
+  ServiceResponse
 > extends ServiceDescriptor<ServiceRequest, ServiceResponse> {
-  sessionDescriptor: MessageDescriptor<Session>;
 }
