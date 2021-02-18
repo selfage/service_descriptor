@@ -1,6 +1,6 @@
 {
   "name": "@selfage/service_descriptor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Descriptor for web/http services.",
   "repository": {
     "type": "git",
