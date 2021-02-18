@@ -1,6 +1,6 @@
 import { MessageDescriptor } from "@selfage/message/descriptor";
 
-interface ServiceDescriptor<ServiceRequest, ServiceResponse> {
+export interface ServiceDescriptor<ServiceRequest, ServiceResponse> {
   name: string;
   path: string;
   requestDescriptor: MessageDescriptor<ServiceRequest>;
