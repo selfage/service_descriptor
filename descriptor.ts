@@ -1,21 +1,34 @@
 import { MessageDescriptor } from "@selfage/message/descriptor";
 
-export interface ServiceDescriptor<ServiceRequest, ServiceResponse> {
+export interface SearchParamDescriptor {
+  key: string;
+  type: MessageDescriptor<any>;
+}
+
+export enum BytesEncoding {
+  BYTES = 1,
+}
+
+export interface BodyDescriptor {
+  messageType?: MessageDescriptor<any>;
+  bytesType?: BytesEncoding;
+}
+
+export interface ServiceDescriptor {
   name: string;
   path: string;
-  requestDescriptor: MessageDescriptor<ServiceRequest>;
-  responseDescriptor: MessageDescriptor<ServiceResponse>;
+  signedUserSession?: SearchParamDescriptor;
+  side?: SearchParamDescriptor;
+  body?: BodyDescriptor;
+  response?: BodyDescriptor;
 }
 
-export interface UnauthedServiceDescriptor<ServiceRequest, ServiceResponse>
-  extends ServiceDescriptor<ServiceRequest, ServiceResponse> {}
-
-export interface WithSession {
-  signedSession?: string;
+export interface ServiceHandler<HandlerRequest, HandlerResponse> {
+  descriptor: ServiceDescriptor;
+  handle(request: HandlerRequest): Promise<HandlerResponse>;
 }
 
-export interface AuthedServiceDescriptor<
-  ServiceRequest extends WithSession,
-  ServiceResponse
-> extends ServiceDescriptor<ServiceRequest, ServiceResponse> {
+export interface ServiceRequest<ClientRequest, ClientResponse> {
+  descriptor: ServiceDescriptor;
+  request: ClientRequest;
 }
