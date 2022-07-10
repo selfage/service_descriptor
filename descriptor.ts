@@ -14,21 +14,25 @@ export interface BodyDescriptor {
   primitiveType?: PrimitveTypeForBody;
 }
 
-export interface WebServiceDescriptorV1 {
-  name: string;
-  path: string;
-  auth?: SearchParamDescriptor;
-  side?: SearchParamDescriptor;
-  body?: BodyDescriptor;
-  response?: MessageDescriptor<any>;
+export interface ResponseDescriptor {
+  messageType?: MessageDescriptor<any>;
 }
 
-export interface WebServiceHandlerV1<HandlerRequest, HandlerResponse> {
-  descriptor: WebServiceDescriptorV1;
+export interface WebServiceDescriptor {
+  name: string;
+  path: string;
+  signedUserSession?: SearchParamDescriptor;
+  side?: SearchParamDescriptor;
+  body?: BodyDescriptor;
+  response?: ResponseDescriptor;
+}
+
+export interface WebServiceHandler<HandlerRequest, HandlerResponse> {
+  descriptor: WebServiceDescriptor;
   handle(request: HandlerRequest): Promise<HandlerResponse>;
 }
 
-export interface WebServiceRequestV1<ClientRequest, ClientResponse> {
-  descriptor: WebServiceDescriptorV1;
+export interface WebServiceRequest<ClientRequest, ClientResponse> {
+  descriptor: WebServiceDescriptor;
   request: ClientRequest;
 }
