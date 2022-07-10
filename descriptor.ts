@@ -6,7 +6,7 @@ export interface SearchParamDescriptor {
 }
 
 export enum PrimitveTypeForBody {
-  FILE = 1,
+  BLOB = 1,
 }
 
 export interface BodyDescriptor {
