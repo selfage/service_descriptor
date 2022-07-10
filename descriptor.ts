@@ -5,30 +5,30 @@ export interface SearchParamDescriptor {
   type: MessageDescriptor<any>;
 }
 
-export enum BytesEncoding {
-  BYTES = 1,
+export enum PrimitveTypeForBody {
+  FILE = 1,
 }
 
 export interface BodyDescriptor {
   messageType?: MessageDescriptor<any>;
-  bytesType?: BytesEncoding;
+  primitiveType?: PrimitveTypeForBody;
 }
 
-export interface ServiceDescriptor {
+export interface WebServiceDescriptor {
   name: string;
   path: string;
-  signedUserSession?: SearchParamDescriptor;
+  auth?: SearchParamDescriptor;
   side?: SearchParamDescriptor;
   body?: BodyDescriptor;
-  response?: BodyDescriptor;
+  response?: MessageDescriptor<any>;
 }
 
-export interface ServiceHandler<HandlerRequest, HandlerResponse> {
-  descriptor: ServiceDescriptor;
+export interface WebServiceHandler<HandlerRequest, HandlerResponse> {
+  descriptor: WebServiceDescriptor;
   handle(request: HandlerRequest): Promise<HandlerResponse>;
 }
 
-export interface ServiceRequest<ClientRequest, ClientResponse> {
-  descriptor: ServiceDescriptor;
+export interface WebServiceRequest<ClientRequest, ClientResponse> {
+  descriptor: WebServiceDescriptor;
   request: ClientRequest;
 }
