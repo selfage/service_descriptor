@@ -18,7 +18,7 @@ export interface ResponseDescriptor {
   messageType?: MessageDescriptor<any>;
 }
 
-export interface WebServiceDescriptor {
+export interface ServiceDescriptor {
   name: string;
   path: string;
   signedUserSession?: SearchParamDescriptor;
@@ -27,12 +27,12 @@ export interface WebServiceDescriptor {
   response?: ResponseDescriptor;
 }
 
-export interface WebServiceHandler<HandlerRequest, HandlerResponse> {
-  descriptor: WebServiceDescriptor;
+export interface ServiceHandler<HandlerRequest, HandlerResponse> {
+  descriptor: ServiceDescriptor;
   handle(request: HandlerRequest): Promise<HandlerResponse>;
 }
 
 export interface WebServiceRequest<ClientRequest, ClientResponse> {
-  descriptor: WebServiceDescriptor;
+  descriptor: ServiceDescriptor;
   request: ClientRequest;
 }
