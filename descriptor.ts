@@ -23,8 +23,8 @@ export interface ServiceDescriptor {
   path: string;
   signedUserSession?: SearchParamDescriptor;
   side?: SearchParamDescriptor;
-  body?: BodyDescriptor;
-  response?: ResponseDescriptor;
+  body: BodyDescriptor;
+  response: ResponseDescriptor;
 }
 
 export interface ServiceHandler<HandlerRequest, HandlerResponse> {
