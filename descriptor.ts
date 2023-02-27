@@ -1,6 +1,11 @@
 import { MessageDescriptor } from "@selfage/message/descriptor";
 
-export interface SearchParamDescriptor {
+export interface QueryParamDescriptor {
+  key: string;
+  type: MessageDescriptor<any>;
+}
+
+export interface HeaderParamDescriptor {
   key: string;
   type: MessageDescriptor<any>;
 }
@@ -21,18 +26,8 @@ export interface ResponseDescriptor {
 export interface ServiceDescriptor {
   name: string;
   path: string;
-  signedUserSession?: SearchParamDescriptor;
-  side?: SearchParamDescriptor;
+  auth?: HeaderParamDescriptor;
+  metadata?: QueryParamDescriptor;
   body: BodyDescriptor;
   response: ResponseDescriptor;
-}
-
-export interface ServiceHandler<HandlerRequest, HandlerResponse> {
-  descriptor: ServiceDescriptor;
-  handle(request: HandlerRequest): Promise<HandlerResponse>;
-}
-
-export interface WebServiceRequest<ClientRequest, ClientResponse> {
-  descriptor: ServiceDescriptor;
-  request: ClientRequest;
 }
