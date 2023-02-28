@@ -1,6 +1,6 @@
 import { ServiceDescriptor } from "./descriptor";
 
-export interface ServiceHandlerInterface<HandlerRequest, HandlerResponse> {
+export interface ServiceHandlerInterface {
   descriptor: ServiceDescriptor;
-  handle(request: HandlerRequest): Promise<HandlerResponse>;
+  handle(...args: any[]): Promise<any>;
 }
