@@ -17,6 +17,7 @@ export enum PrimitveTypeForBody {
 export interface BodyDescriptor {
   messageType?: MessageDescriptor<any>;
   primitiveType?: PrimitveTypeForBody;
+  streamMessageType?: MessageDescriptor<any>;
 }
 
 export interface ResponseDescriptor {
@@ -28,6 +29,6 @@ export interface ServiceDescriptor {
   path: string;
   auth?: HeaderParamDescriptor;
   metadata?: QueryParamDescriptor;
-  body: BodyDescriptor;
+  body?: BodyDescriptor;
   response: ResponseDescriptor;
 }
