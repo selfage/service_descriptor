@@ -1,3 +1,9 @@
+export interface WebServiceClientOptions {
+  keepAlive?: boolean;
+  timeout?: number; // ms
+  retries?: number; // Number of retries when failure is not due to timeout.
+}
+
 export interface WebServiceClientInterface {
-  send(request: any): Promise<any>;
+  send(request: any, options?: WebServiceClientOptions): Promise<any>;
 }
