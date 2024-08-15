@@ -24,7 +24,7 @@ export interface ResponseDescriptor {
   messageType?: MessageDescriptor<any>;
 }
 
-export interface ServiceDescriptor {
+export interface RemoteCallDescriptor {
   name: string;
   path: string;
   auth?: HeaderParamDescriptor;
