@@ -1,7 +1,7 @@
 {
   "name": "@selfage/service_descriptor",
-  "version": "4.0.0",
-  "description": "Descriptor for web/http services.",
+  "version": "4.1.0",
+  "description": "Descriptor for web and node http services.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/selfage/service_descriptor.git"
@@ -25,6 +25,7 @@
     "**/*.js"
   ],
   "devDependencies": {
+    "@selfage/cli": "^5.0.0",
     "@selfage/tsconfig": "^1.0.3",
     "typescript": "^5.4.5"
   },

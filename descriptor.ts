@@ -24,10 +24,18 @@ export interface ResponseDescriptor {
   messageType?: MessageDescriptor<any>;
 }
 
-export interface RemoteCallDescriptor {
+export interface WebRemoteCallDescriptor {
   name: string;
   path: string;
   auth?: HeaderParamDescriptor;
+  metadata?: QueryParamDescriptor;
+  body?: BodyDescriptor;
+  response: ResponseDescriptor;
+}
+
+export interface NodeRemoteCallDescriptor {
+  name: string;
+  path: string;
   metadata?: QueryParamDescriptor;
   body?: BodyDescriptor;
   response: ResponseDescriptor;
