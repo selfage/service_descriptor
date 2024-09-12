@@ -1,6 +1,6 @@
 {
   "name": "@selfage/service_descriptor",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "description": "Descriptor for web and node http services.",
   "repository": {
     "type": "git",
@@ -26,10 +26,10 @@
   ],
   "devDependencies": {
     "@selfage/cli": "^5.0.0",
-    "@selfage/tsconfig": "^1.0.3",
+    "@selfage/tsconfig": "^1.1.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@selfage/message": "^3.5.2"
+    "@selfage/message": "^3.5.4"
   }
 }

@@ -27,7 +27,7 @@ export interface ResponseDescriptor {
 export interface WebRemoteCallDescriptor {
   name: string;
   path: string;
-  auth?: HeaderParamDescriptor;
+  sessionKey?: string;
   metadata?: QueryParamDescriptor;
   body?: BodyDescriptor;
   response: ResponseDescriptor;
