@@ -5,11 +5,6 @@ export interface QueryParamDescriptor {
   type: MessageDescriptor<any>;
 }
 
-export interface HeaderParamDescriptor {
-  key: string;
-  type: MessageDescriptor<any>;
-}
-
 export enum PrimitveTypeForBody {
   BYTES = 1,
 }
