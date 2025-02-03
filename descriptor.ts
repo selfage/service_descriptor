@@ -19,18 +19,11 @@ export interface ResponseDescriptor {
   messageType?: MessageDescriptor<any>;
 }
 
-export interface WebRemoteCallDescriptor {
+export interface RemoteCallDescriptor {
   name: string;
+  serviceName: string; // An arbitrary name that maps to a base URL.
   path: string;
-  sessionKey?: string;
-  metadata?: QueryParamDescriptor;
-  body?: BodyDescriptor;
-  response: ResponseDescriptor;
-}
-
-export interface NodeRemoteCallDescriptor {
-  name: string;
-  path: string;
+  authKey?: string;
   metadata?: QueryParamDescriptor;
   body?: BodyDescriptor;
   response: ResponseDescriptor;

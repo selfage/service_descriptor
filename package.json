@@ -1,18 +1,20 @@
 {
   "name": "@selfage/service_descriptor",
-  "version": "4.3.1",
-  "description": "Descriptor for web and node http services.",
+  "version": "5.0.0",
+  "description": "Descriptor for remote services based on HTTP.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/selfage/service_descriptor.git"
   },
   "keywords": [
     "Descriptor",
+    "Remote",
     "Service",
     "Web",
+    "HTTP",
     "TypeScript"
   ],
-  "author": "Yuxuan Xie <teststaybaka@gmail.com> (http://www.yuxuanxie.com)",
+  "author": "Yuxuan Xie <ykuyo.dev@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/selfage/service_descriptor/issues"
