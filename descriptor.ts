@@ -1,3 +1,4 @@
+import { ClientType } from "./client_type";
 import { MessageDescriptor } from "@selfage/message/descriptor";
 
 export interface QueryParamDescriptor {
@@ -21,10 +22,16 @@ export interface ResponseDescriptor {
 
 export interface RemoteCallDescriptor {
   name: string;
-  serviceName: string; // An arbitrary name that maps to a base URL.
+  service: ServiceDescriptor;
   path: string;
   authKey?: string;
   metadata?: QueryParamDescriptor;
   body?: BodyDescriptor;
   response: ResponseDescriptor;
+}
+
+export interface ServiceDescriptor {
+  clientType: ClientType;
+  name: string;
+  port: number;
 }

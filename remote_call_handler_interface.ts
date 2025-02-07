@@ -1,6 +1,6 @@
 import { RemoteCallDescriptor } from "./descriptor";
 
-export interface HandlerInterface {
+export interface RemoteCallHandlerInterface {
   descriptor: RemoteCallDescriptor;
   handle(...args: any[]): Promise<any>;
 }
