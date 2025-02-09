@@ -33,6 +33,6 @@ export interface RemoteCallDescriptor {
 export interface ServiceDescriptor {
   clientType: ClientType;
   name: string;
+  protocol: "http" | "https";
   port: number;
-  protocol: string;
 }
