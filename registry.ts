@@ -1,6 +1,7 @@
 import { ClientType } from "./client_type";
 
 interface ServiceRegistry {
+  clientType: ClientType;
   nameToHostnames: Map<string, string>;
 }
 

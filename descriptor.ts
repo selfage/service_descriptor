@@ -36,3 +36,11 @@ export interface ServiceDescriptor {
   protocol: "http" | "https";
   port: number;
 }
+
+export interface HttpServiceDescriptor extends ServiceDescriptor {
+  protocol: "http";
+}
+
+export interface HttpsServiceDescriptor extends ServiceDescriptor {
+  protocol: "https";
+}

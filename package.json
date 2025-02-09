@@ -1,6 +1,6 @@
 {
   "name": "@selfage/service_descriptor",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "description": "Descriptor for remote services based on HTTP.",
   "repository": {
     "type": "git",
