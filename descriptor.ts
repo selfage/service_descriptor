@@ -30,8 +30,8 @@ export interface RemoteCallDescriptor {
   response: ResponseDescriptor;
 }
 
+// Always use default port. 80 for http, 443 for https.
 export interface ServiceDescriptor {
   clientType: ClientType;
   name: string;
-  port: number;
 }

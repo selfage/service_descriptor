@@ -1,12 +1,7 @@
 import { ClientType } from "./client_type";
 
-export interface Endpoint {
-  origin: string;
-  path: string;
-}
-
 interface ServiceRegistry {
-  nameToEndpoints: Map<string, Endpoint>;
+  nameToHostnames: Map<string, string>;
 }
 
 export interface WebServiceRegistry extends ServiceRegistry {
