@@ -31,4 +31,5 @@ export interface RemoteCallDescriptor {
 
 export interface ServiceDescriptor {
   name: string;
+  path: string;
 }
