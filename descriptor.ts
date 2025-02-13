@@ -1,4 +1,3 @@
-import { ClientType } from "./client_type";
 import { MessageDescriptor } from "@selfage/message/descriptor";
 
 export interface QueryParamDescriptor {
@@ -31,16 +30,5 @@ export interface RemoteCallDescriptor {
 }
 
 export interface ServiceDescriptor {
-  clientType: ClientType;
   name: string;
-  protocol: "http" | "https";
-  port: number;
-}
-
-export interface HttpServiceDescriptor extends ServiceDescriptor {
-  protocol: "http";
-}
-
-export interface HttpsServiceDescriptor extends ServiceDescriptor {
-  protocol: "https";
 }
